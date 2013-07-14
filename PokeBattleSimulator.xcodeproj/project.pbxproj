@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD472D6F1792A9E500E9B66A /* UIView+MyExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FD472D6E1792A9E500E9B66A /* UIView+MyExtension.m */; };
+		FDAF7474178F71940072ECE6 /* PokeCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAF7473178F71940072ECE6 /* PokeCreateViewController.m */; };
 		FDC807B2178893DA00F1CE73 /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = FDC807B1178893DA00F1CE73 /* pokemon.json */; };
 		FDC807B4178894BA00F1CE73 /* waza.json in Resources */ = {isa = PBXBuildFile; fileRef = FDC807B3178894BA00F1CE73 /* waza.json */; };
 		FDD6CB8417848DC500F66333 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD6CB8317848DC500F66333 /* UIKit.framework */; };
@@ -23,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD472D6D1792A9E500E9B66A /* UIView+MyExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MyExtension.h"; sourceTree = "<group>"; };
+		FD472D6E1792A9E500E9B66A /* UIView+MyExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MyExtension.m"; sourceTree = "<group>"; };
+		FDAF7472178F71940072ECE6 /* PokeCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeCreateViewController.h; path = src/PokeCreateViewController.h; sourceTree = "<group>"; };
+		FDAF7473178F71940072ECE6 /* PokeCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PokeCreateViewController.m; path = src/PokeCreateViewController.m; sourceTree = "<group>"; };
 		FDC807B1178893DA00F1CE73 /* pokemon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
 		FDC807B3178894BA00F1CE73 /* waza.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waza.json; sourceTree = "<group>"; };
 		FDD6CB8017848DC500F66333 /* PokeBattleSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeBattleSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +63,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD472D6C1792A9D300E9B66A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				FD472D6D1792A9E500E9B66A /* UIView+MyExtension.h */,
+				FD472D6E1792A9E500E9B66A /* UIView+MyExtension.m */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		FDAF7471178F71360072ECE6 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FD472D6C1792A9D300E9B66A /* common */,
+				FDAF7472178F71940072ECE6 /* PokeCreateViewController.h */,
+				FDAF7473178F71940072ECE6 /* PokeCreateViewController.m */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		FDC807B0178893AF00F1CE73 /* DataFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +121,7 @@
 		FDD6CB8917848DC500F66333 /* PokeBattleSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				FDAF7471178F71360072ECE6 /* src */,
 				FDC807B0178893AF00F1CE73 /* DataFiles */,
 				FDD6CB9217848DC500F66333 /* AppDelegate.h */,
 				FDD6CB9317848DC500F66333 /* AppDelegate.m */,
@@ -192,6 +218,8 @@
 				FDD6CB9017848DC500F66333 /* main.m in Sources */,
 				FDD6CB9417848DC500F66333 /* AppDelegate.m in Sources */,
 				FDD6CBA017848DC500F66333 /* ViewController.m in Sources */,
+				FDAF7474178F71940072ECE6 /* PokeCreateViewController.m in Sources */,
+				FD472D6F1792A9E500E9B66A /* UIView+MyExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
