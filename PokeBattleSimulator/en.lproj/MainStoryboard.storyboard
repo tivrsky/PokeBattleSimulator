@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -39,17 +39,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="THD-Gn-2UF" secondAttribute="bottom" constant="187" id="0ZW-q5-oiS"/>
-                            <constraint firstItem="THD-Gn-2UF" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="Ifx-lD-7nV"/>
+                            <constraint firstItem="THD-Gn-2UF" firstAttribute="top" secondItem="3" secondAttribute="top" constant="252" id="83W-Zz-XoP"/>
+                            <constraint firstItem="b6b-H4-I9D" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="ABT-Xh-Ci2"/>
+                            <constraint firstItem="b6b-H4-I9D" firstAttribute="top" secondItem="3" secondAttribute="top" constant="98" id="Hnr-ta-BRK"/>
                             <constraint firstItem="THD-Gn-2UF" firstAttribute="centerX" secondItem="b6b-H4-I9D" secondAttribute="centerX" type="default" id="buT-gO-hq3"/>
-                            <constraint firstItem="b6b-H4-I9D" firstAttribute="top" secondItem="3" secondAttribute="top" constant="263" id="idV-xy-D24"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller - Info-->
+        <!--View Controller - info-->
         <scene sceneID="glt-O0-Lww">
             <objects>
                 <viewController id="mzn-Ya-gYX" sceneMemberID="viewController">
@@ -69,13 +69,13 @@
                             <constraint firstItem="6nh-gu-OOQ" firstAttribute="centerY" secondItem="Ewj-kU-vW5" secondAttribute="centerY" type="default" id="f1O-nh-XMJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" id="ggf-ge-AVZ"/>
+                    <tabBarItem key="tabBarItem" title="info" id="ggf-ge-AVZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZU1-nR-dYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1274" y="384"/>
         </scene>
-        <!--Poke Create View Controller - No Name-->
+        <!--Poke Create View Controller - create-->
         <scene sceneID="BNb-kI-jGe">
             <objects>
                 <viewController id="5ch-Ns-yEL" customClass="PokeCreateViewController" sceneMemberID="viewController">
@@ -123,7 +123,7 @@
                             <constraint firstItem="EXi-8t-7fu" firstAttribute="leading" secondItem="JBT-52-WbR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="z5D-mb-LGH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="No Name" id="M1L-eC-Eo8"/>
+                    <tabBarItem key="tabBarItem" title="create" id="M1L-eC-Eo8"/>
                     <connections>
                         <outlet property="nameButton" destination="EXi-8t-7fu" id="pLP-GT-d4o"/>
                     </connections>

@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD472D6F1792A9E500E9B66A /* UIView+MyExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FD472D6E1792A9E500E9B66A /* UIView+MyExtension.m */; };
+		A038B7511792DB1C0072FCEA /* UIView+MyExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A038B7501792DB1C0072FCEA /* UIView+MyExtension.m */; };
+		A05B8E3A17930D45004CD952 /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = A05B8E3817930D45004CD952 /* pokemon.json */; };
+		A05B8E3B17930D45004CD952 /* waza.json in Resources */ = {isa = PBXBuildFile; fileRef = A05B8E3917930D45004CD952 /* waza.json */; };
+		A07CD08D1792EA38000D7DEF /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = A07CD08C1792EA38000D7DEF /* Pokemon.m */; };
 		FDAF7474178F71940072ECE6 /* PokeCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAF7473178F71940072ECE6 /* PokeCreateViewController.m */; };
-		FDC807B2178893DA00F1CE73 /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = FDC807B1178893DA00F1CE73 /* pokemon.json */; };
-		FDC807B4178894BA00F1CE73 /* waza.json in Resources */ = {isa = PBXBuildFile; fileRef = FDC807B3178894BA00F1CE73 /* waza.json */; };
 		FDD6CB8417848DC500F66333 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD6CB8317848DC500F66333 /* UIKit.framework */; };
 		FDD6CB8617848DC500F66333 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD6CB8517848DC500F66333 /* Foundation.framework */; };
 		FDD6CB8817848DC500F66333 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD6CB8717848DC500F66333 /* CoreGraphics.framework */; };
@@ -25,12 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FD472D6D1792A9E500E9B66A /* UIView+MyExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MyExtension.h"; sourceTree = "<group>"; };
-		FD472D6E1792A9E500E9B66A /* UIView+MyExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MyExtension.m"; sourceTree = "<group>"; };
+		A038B74F1792DB1C0072FCEA /* UIView+MyExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+MyExtension.h"; path = "src/common/UIView+MyExtension.h"; sourceTree = "<group>"; };
+		A038B7501792DB1C0072FCEA /* UIView+MyExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+MyExtension.m"; path = "src/common/UIView+MyExtension.m"; sourceTree = "<group>"; };
+		A05B8E3817930D45004CD952 /* pokemon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
+		A05B8E3917930D45004CD952 /* waza.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waza.json; sourceTree = "<group>"; };
+		A07CD08B1792EA38000D7DEF /* Pokemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pokemon.h; path = src/model/Pokemon.h; sourceTree = "<group>"; };
+		A07CD08C1792EA38000D7DEF /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pokemon.m; path = src/model/Pokemon.m; sourceTree = "<group>"; };
 		FDAF7472178F71940072ECE6 /* PokeCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeCreateViewController.h; path = src/PokeCreateViewController.h; sourceTree = "<group>"; };
 		FDAF7473178F71940072ECE6 /* PokeCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PokeCreateViewController.m; path = src/PokeCreateViewController.m; sourceTree = "<group>"; };
-		FDC807B1178893DA00F1CE73 /* pokemon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
-		FDC807B3178894BA00F1CE73 /* waza.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waza.json; sourceTree = "<group>"; };
 		FDD6CB8017848DC500F66333 /* PokeBattleSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeBattleSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD6CB8317848DC500F66333 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FDD6CB8517848DC500F66333 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,11 +66,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A05B8E3717930D45004CD952 /* DataFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A05B8E3817930D45004CD952 /* pokemon.json */,
+				A05B8E3917930D45004CD952 /* waza.json */,
+			);
+			path = DataFiles;
+			sourceTree = "<group>";
+		};
+		A07CD08A1792EA0C000D7DEF /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A07CD08B1792EA38000D7DEF /* Pokemon.h */,
+				A07CD08C1792EA38000D7DEF /* Pokemon.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		FD472D6C1792A9D300E9B66A /* common */ = {
 			isa = PBXGroup;
 			children = (
-				FD472D6D1792A9E500E9B66A /* UIView+MyExtension.h */,
-				FD472D6E1792A9E500E9B66A /* UIView+MyExtension.m */,
+				A038B74F1792DB1C0072FCEA /* UIView+MyExtension.h */,
+				A038B7501792DB1C0072FCEA /* UIView+MyExtension.m */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -75,20 +96,12 @@
 		FDAF7471178F71360072ECE6 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A07CD08A1792EA0C000D7DEF /* model */,
 				FD472D6C1792A9D300E9B66A /* common */,
 				FDAF7472178F71940072ECE6 /* PokeCreateViewController.h */,
 				FDAF7473178F71940072ECE6 /* PokeCreateViewController.m */,
 			);
 			name = src;
-			sourceTree = "<group>";
-		};
-		FDC807B0178893AF00F1CE73 /* DataFiles */ = {
-			isa = PBXGroup;
-			children = (
-				FDC807B1178893DA00F1CE73 /* pokemon.json */,
-				FDC807B3178894BA00F1CE73 /* waza.json */,
-			);
-			name = DataFiles;
 			sourceTree = "<group>";
 		};
 		FDD6CB7717848DC500F66333 = {
@@ -121,8 +134,8 @@
 		FDD6CB8917848DC500F66333 /* PokeBattleSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				A05B8E3717930D45004CD952 /* DataFiles */,
 				FDAF7471178F71360072ECE6 /* src */,
-				FDC807B0178893AF00F1CE73 /* DataFiles */,
 				FDD6CB9217848DC500F66333 /* AppDelegate.h */,
 				FDD6CB9317848DC500F66333 /* AppDelegate.m */,
 				FDD6CB9B17848DC500F66333 /* MainStoryboard.storyboard */,
@@ -203,8 +216,8 @@
 				FDD6CB9817848DC500F66333 /* Default@2x.png in Resources */,
 				FDD6CB9A17848DC500F66333 /* Default-568h@2x.png in Resources */,
 				FDD6CB9D17848DC500F66333 /* MainStoryboard.storyboard in Resources */,
-				FDC807B2178893DA00F1CE73 /* pokemon.json in Resources */,
-				FDC807B4178894BA00F1CE73 /* waza.json in Resources */,
+				A05B8E3A17930D45004CD952 /* pokemon.json in Resources */,
+				A05B8E3B17930D45004CD952 /* waza.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +232,8 @@
 				FDD6CB9417848DC500F66333 /* AppDelegate.m in Sources */,
 				FDD6CBA017848DC500F66333 /* ViewController.m in Sources */,
 				FDAF7474178F71940072ECE6 /* PokeCreateViewController.m in Sources */,
-				FD472D6F1792A9E500E9B66A /* UIView+MyExtension.m in Sources */,
+				A038B7511792DB1C0072FCEA /* UIView+MyExtension.m in Sources */,
+				A07CD08D1792EA38000D7DEF /* Pokemon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

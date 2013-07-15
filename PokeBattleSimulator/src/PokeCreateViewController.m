@@ -8,6 +8,7 @@
 
 #import "PokeCreateViewController.h"
 #import "UIView+MyExtension.h"
+#import "Pokemon.h"
 
 @interface PokeCreateViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
@@ -18,8 +19,8 @@
 @implementation PokeCreateViewController
 
 UIPickerView *namePickerView;
-NSMutableArray *array1;
-
+NSMutableArray *pokeArray;
+NSMutableDictionary *pokeDictionary;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,15 +38,48 @@ NSMutableArray *array1;
     NSLog(@"PokeCreateViewController viewDidLoad");
 
     NSInteger tabbarHeight = [[[self tabBarController]rotatingFooterView] frame].size.height;
-    NSLog(@"tabbarHeight %d", tabbarHeight);
-    
+
     namePickerView = [[UIPickerView alloc] init];
     namePickerView.y = self.view.height - namePickerView.height - tabbarHeight;
     namePickerView.showsSelectionIndicator = YES;
     namePickerView.delegate = self;
     namePickerView.dataSource = self;
+    
+    pokeArray = [[NSMutableArray alloc] init];
+//    NSString *jsonPokeNames = @"["
+//            "{\"No\":641,\"名前\":\"トルネロス\",\"HP\":79,\"こうげき\":115,\"ぼうぎょ\":70,\"とくこう\":125,\"とくぼう\":80,\"すばやさ\":111,\"タイプ\":\"ひこう\"},\n"
+//            "  {\"No\":642,\"名前\":\"ボルトロス\",\"HP\":79,\"こうげき\":115,\"ぼうぎょ\":70,\"とくこう\":125,\"とくぼう\":80,\"すばやさ\":111,\"タイプ\":\"でんき/ひこう\"}"
+//            "]";
+//
+//    NSData *pokeNamesData = [jsonPokeNames dataUsingEncoding:NSUnicodeStringEncoding];
+    //    NSArray *array = [NSJSONSerialization JSONObjectWithData:pokeNamesData options:NSJSONReadingAllowFragments error:&error];
+    // file load
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *filePath = [bundle pathForResource:@"pokemon" ofType:@"json"];
+    NSLog(@"path %@", filePath);
+    NSData *pokemonJsonData = [NSData dataWithContentsOfFile:filePath];
 
-    array1 = [NSArray arrayWithObjects:@"ミジュマル",@"クルミル",@"ダルマッカ", nil];
+    NSError *error;
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:pokemonJsonData options:NSJSONReadingAllowFragments error:&error];
+
+    pokeDictionary = [[NSMutableDictionary alloc] init];
+
+    for (NSDictionary *obj in array) {
+        Pokemon *pokemon = [[Pokemon alloc] init];
+        pokemon.Name = [obj valueForKey:@"名前"];
+        pokemon.type = [obj valueForKey:@"タイプ"];
+        pokemon.No = [(NSString *)[obj valueForKey:@"No"] intValue];
+        pokemon.H = [(NSString *)[obj valueForKey:@"HP"] intValue];
+        pokemon.A = [(NSString *)[obj valueForKey:@"こうげき"] intValue];
+        pokemon.B = [(NSString *)[obj valueForKey:@"ぼうぎょ"] intValue];
+        pokemon.C = [(NSString *)[obj valueForKey:@"とくこう"] intValue];
+        pokemon.D = [(NSString *)[obj valueForKey:@"とくぼう"] intValue];
+        pokemon.S = [(NSString *)[obj valueForKey:@"すばやさ"] intValue];
+
+        [pokeArray addObject:pokemon];
+        [pokeDictionary setObject:pokemon forKey:[NSString stringWithFormat:@"%d", pokemon.No]];
+    }
+
 }
 
 /* PickerView */
@@ -54,20 +88,21 @@ NSMutableArray *array1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [array1 count];
+    return [pokeDictionary count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [array1 objectAtIndex:row];
+    Pokemon *pokemon = [pokeArray objectAtIndex:row];
+    return [NSString stringWithFormat:@"%d : %@",pokemon.No, pokemon.Name];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [_nameButton setTitle:[array1 objectAtIndex:row] forState:UIControlStateNormal];
+    Pokemon *pokemon = [pokeArray objectAtIndex:row];
+    [_nameButton setTitle:pokemon.Name forState:UIControlStateNormal];
 }
 
 - (IBAction)PokeName:(id)sender {
     NSLog(@"PushButton");
-
     [self.view addSubview:namePickerView];
 }
 
