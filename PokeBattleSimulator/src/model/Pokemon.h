@@ -12,7 +12,8 @@
 
 @property(nonatomic, assign) NSInteger No;
 @property (nonatomic, copy) NSString *Name;
-@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *type1;
+@property (nonatomic, copy) NSString *type2;
 @property(nonatomic, assign) NSInteger H;
 @property(nonatomic, assign) NSInteger A;
 @property(nonatomic, assign) NSInteger B;

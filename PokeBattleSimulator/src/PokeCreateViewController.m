@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
 
 
+
 @end
 
 @implementation PokeCreateViewController
@@ -42,6 +43,9 @@ NSMutableDictionary *pokeDictionary;
     namePickerView = [[UIPickerView alloc] init];
     namePickerView.y = self.view.height - namePickerView.height - tabbarHeight;
     namePickerView.showsSelectionIndicator = YES;
+    namePickerView.shouldGroupAccessibilityChildren = YES;
+    namePickerView.translatesAutoresizingMaskIntoConstraints = YES;
+    namePickerView.userInteractionEnabled = YES;
     namePickerView.delegate = self;
     namePickerView.dataSource = self;
     
@@ -67,7 +71,15 @@ NSMutableDictionary *pokeDictionary;
     for (NSDictionary *obj in array) {
         Pokemon *pokemon = [[Pokemon alloc] init];
         pokemon.Name = [obj valueForKey:@"名前"];
-        pokemon.type = [obj valueForKey:@"タイプ"];
+
+//        pokemon.type = [obj valueForKey:@"タイプ"];
+        NSString *typeString = [obj valueForKey:@"タイプ"];
+        NSArray *typeArray = [typeString componentsSeparatedByString:@"/"];
+        pokemon.type1 = [typeArray objectAtIndex:0];
+        if ([typeArray count] > 1) {
+            pokemon.type2 = [typeArray objectAtIndex:1];
+        }
+
         pokemon.No = [(NSString *)[obj valueForKey:@"No"] intValue];
         pokemon.H = [(NSString *)[obj valueForKey:@"HP"] intValue];
         pokemon.A = [(NSString *)[obj valueForKey:@"こうげき"] intValue];

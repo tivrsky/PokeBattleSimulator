@@ -11,6 +11,19 @@
 
 @implementation Pokemon
 
-
+- (id)init {
+    self = [super init];
+    _No = 0;
+    _Name = nil;
+    _type1 = nil;
+    _type2 = nil;
+    _H = 0;
+    _A = 0;
+    _B = 0;
+    _C = 0;
+    _D = 0;
+    _S = 0;
+    return self;
+}
 
 @end
