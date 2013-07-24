@@ -13,6 +13,7 @@
 @interface PokeCreateViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
 
+@property (weak, nonatomic) IBOutlet UITextField *actualHP;
 
 
 @end
@@ -71,8 +72,7 @@ NSMutableDictionary *pokeDictionary;
     for (NSDictionary *obj in array) {
         Pokemon *pokemon = [[Pokemon alloc] init];
         pokemon.Name = [obj valueForKey:@"名前"];
-
-//        pokemon.type = [obj valueForKey:@"タイプ"];
+        
         NSString *typeString = [obj valueForKey:@"タイプ"];
         NSArray *typeArray = [typeString componentsSeparatedByString:@"/"];
         pokemon.type1 = [typeArray objectAtIndex:0];
@@ -111,6 +111,9 @@ NSMutableDictionary *pokeDictionary;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     Pokemon *pokemon = [pokeArray objectAtIndex:row];
     [_nameButton setTitle:pokemon.Name forState:UIControlStateNormal];
+    
+    NSInteger actualHp = (int)(floor(pokemon.H * 2 + 0 + 0/4 ) * 50/100 ) + 10 + 50;
+    [_actualHP setText:[NSString stringWithFormat:@"%d",actualHp]];
 }
 
 - (IBAction)PokeName:(id)sender {
