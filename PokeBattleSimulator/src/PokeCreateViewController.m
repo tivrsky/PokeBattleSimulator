@@ -14,6 +14,26 @@
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *actualHP;
+@property (weak, nonatomic) IBOutlet UITextField *actualA;
+@property (weak, nonatomic) IBOutlet UITextField *actualB;
+@property (weak, nonatomic) IBOutlet UITextField *actualC;
+@property (weak, nonatomic) IBOutlet UITextField *actualD;
+@property (weak, nonatomic) IBOutlet UITextField *actualS;
+
+@property (weak, nonatomic) IBOutlet UITextField *ivHp;
+@property (weak, nonatomic) IBOutlet UITextField *ivA;
+@property (weak, nonatomic) IBOutlet UITextField *ivB;
+@property (weak, nonatomic) IBOutlet UITextField *ivC;
+@property (weak, nonatomic) IBOutlet UITextField *ivD;
+@property (weak, nonatomic) IBOutlet UITextField *ivS;
+
+@property (weak, nonatomic) IBOutlet UITextField *evHp;
+@property (weak, nonatomic) IBOutlet UITextField *evA;
+@property (weak, nonatomic) IBOutlet UITextField *evB;
+@property (weak, nonatomic) IBOutlet UITextField *evC;
+@property (weak, nonatomic) IBOutlet UITextField *evD;
+@property (weak, nonatomic) IBOutlet UITextField *evS;
+
 
 
 @end
@@ -112,14 +132,26 @@ NSMutableDictionary *pokeDictionary;
     Pokemon *pokemon = [pokeArray objectAtIndex:row];
     [_nameButton setTitle:pokemon.Name forState:UIControlStateNormal];
     
+    [self calculationParamater:pokemon];
+}
+
+
+/* Calculation */
+- (void) calculationParamater: (Pokemon*)pokemon {
+    
     NSInteger actualHp = (int)(floor(pokemon.H * 2 + 0 + 0/4 ) * 50/100 ) + 10 + 50;
     [_actualHP setText:[NSString stringWithFormat:@"%d",actualHp]];
 }
 
+/* Push buttons */
 - (IBAction)PokeName:(id)sender {
     NSLog(@"PushButton");
     [self.view addSubview:namePickerView];
 }
+
+- (IBAction)addEvAp:(id)sender {
+}
+
 
 /* pickerclose */
 - (IBAction)closeButton:(id)sender {

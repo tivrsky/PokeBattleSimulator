@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -324,6 +324,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addEvAp:" destination="5ch-Ns-yEL" eventType="touchUpInside" id="IfW-80-I7q"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvV-fC-tgA">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -517,7 +520,24 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="create" id="M1L-eC-Eo8"/>
                     <connections>
+                        <outlet property="actualA" destination="aZA-bb-Jwp" id="OYf-jI-cVm"/>
+                        <outlet property="actualB" destination="x3M-1f-en3" id="398-Dd-cIr"/>
+                        <outlet property="actualC" destination="5HU-rO-Mfl" id="Ozc-kH-FJy"/>
+                        <outlet property="actualD" destination="rFw-Mz-iJ4" id="jkl-fd-CCv"/>
                         <outlet property="actualHP" destination="x9F-s6-YeA" id="l5d-uj-GQK"/>
+                        <outlet property="actualS" destination="Gxo-bG-1OS" id="rsu-oe-MmT"/>
+                        <outlet property="evA" destination="g14-7y-Id8" id="7vz-BE-zc9"/>
+                        <outlet property="evB" destination="1SR-ba-Rn5" id="4lB-U9-Kaa"/>
+                        <outlet property="evC" destination="BfK-EC-Sef" id="eaM-7y-Qj9"/>
+                        <outlet property="evD" destination="uVJ-vL-eTE" id="ipy-fQ-E2h"/>
+                        <outlet property="evHp" destination="pG4-j4-hhl" id="sWj-Ov-BLh"/>
+                        <outlet property="evS" destination="0By-Xl-5Cd" id="bUI-Vo-Z4a"/>
+                        <outlet property="ivA" destination="qoz-fq-Yrp" id="RbB-b6-Gvb"/>
+                        <outlet property="ivB" destination="7nJ-fd-BQB" id="8h0-Ni-nKJ"/>
+                        <outlet property="ivC" destination="yrg-QP-1kT" id="msq-7t-bPd"/>
+                        <outlet property="ivD" destination="jyP-eK-ma4" id="xx3-Wn-N5c"/>
+                        <outlet property="ivHp" destination="ByL-xi-XvI" id="Zbz-zp-VY2"/>
+                        <outlet property="ivS" destination="PlL-lw-ZNW" id="zrp-Vh-5U0"/>
                         <outlet property="nameButton" destination="EXi-8t-7fu" id="pLP-GT-d4o"/>
                     </connections>
                 </viewController>
@@ -553,8 +573,26 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PokeCreateViewController.h"/>
             <relationships>
                 <relationship kind="action" name="PokeName:"/>
+                <relationship kind="action" name="addEvAp:"/>
                 <relationship kind="action" name="closeButton:"/>
+                <relationship kind="outlet" name="actualA" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="actualB" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="actualC" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="actualD" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="actualHP" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="actualS" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="evA" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="evB" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="evC" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="evD" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="evHp" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="evS" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ivA" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ivB" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ivC" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ivD" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ivHp" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ivS" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="nameButton" candidateClass="UIButton"/>
             </relationships>
         </class>
