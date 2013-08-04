@@ -10,7 +10,7 @@
 #import "UIView+MyExtension.h"
 #import "Pokemon.h"
 
-@interface PokeCreateViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface PokeCreateViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *actualHP;
@@ -34,15 +34,18 @@
 @property (weak, nonatomic) IBOutlet UITextField *evD;
 @property (weak, nonatomic) IBOutlet UITextField *evS;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *uiScrollView;
 
 
 @end
 
 @implementation PokeCreateViewController
 
+UIActionSheet *uiActionSheet;
 UIPickerView *namePickerView;
 NSMutableArray *pokeArray;
 NSMutableDictionary *pokeDictionary;
+UIToolbar *pokeToolBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,16 +62,50 @@ NSMutableDictionary *pokeDictionary;
 
     NSLog(@"PokeCreateViewController viewDidLoad");
 
-    NSInteger tabbarHeight = [[[self tabBarController]rotatingFooterView] frame].size.height;
+    _actualHP.delegate = self;
+    _actualA.delegate = self;
+    _actualB.delegate = self;
+    _actualC.delegate = self;
+    _actualD.delegate = self;
+    _actualS.delegate = self;
 
-    namePickerView = [[UIPickerView alloc] init];
-    namePickerView.y = self.view.height - namePickerView.height - tabbarHeight;
+    _ivHp.delegate = self;
+    _ivA.delegate = self;
+    _ivB.delegate = self;
+    _ivC.delegate = self;
+    _ivD.delegate = self;
+    _ivS.delegate = self;
+
+    _evHp.delegate = self;
+    _evA.delegate = self;
+    _evB.delegate = self;
+    _evC.delegate = self;
+    _evD.delegate = self;
+    _evS.delegate = self;
+
+    //NSInteger tabBarHeight = [[[self tabBarController]rotatingFooterView] frame].size.height;
+
+    uiActionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    uiActionSheet.delegate = self;
+
+    pokeToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [pokeToolBar sizeToFit];
+
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButton)];
+    [pokeToolBar setItems:[NSArray arrayWithObjects:spacer, done, nil]];
+    
+    [uiActionSheet addSubview:pokeToolBar];
+
+    namePickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, 0, 0)];
+    //namePickerView.y = self.view.height - namePickerView.height - tabBarHeight;
     namePickerView.showsSelectionIndicator = YES;
     namePickerView.shouldGroupAccessibilityChildren = YES;
     namePickerView.translatesAutoresizingMaskIntoConstraints = YES;
     namePickerView.userInteractionEnabled = YES;
     namePickerView.delegate = self;
     namePickerView.dataSource = self;
+    [uiActionSheet addSubview:namePickerView];
     
     pokeArray = [[NSMutableArray alloc] init];
 //    NSString *jsonPokeNames = @"["
@@ -115,6 +152,10 @@ NSMutableDictionary *pokeDictionary;
 }
 
 /* PickerView */
+- (void)doneButton {
+    [uiActionSheet dismissWithClickedButtonIndex:0 animated:YES];
+}
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
@@ -131,29 +172,51 @@ NSMutableDictionary *pokeDictionary;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     Pokemon *pokemon = [pokeArray objectAtIndex:row];
     [_nameButton setTitle:pokemon.Name forState:UIControlStateNormal];
-    
-    [self calculationParamater:pokemon];
+
+    [self setParameter:pokemon];
 }
 
 
 /* Calculation */
-- (void) calculationParamater: (Pokemon*)pokemon {
-    
-    NSInteger actualHp = (int)(floor(pokemon.H * 2 + 0 + 0/4 ) * 50/100 ) + 10 + 50;
+- (void) setParameter: (Pokemon*)pokemon {
+    //{(種族値×2＋個体値＋努力値/4)×Lv/100}＋10＋Lv
+    NSInteger actualHp = (int)(floor(pokemon.H * 2 + [_ivHp.text intValue] + ([_evHp.text intValue]/4) ) * 50/100 ) + 10 + 50;
     [_actualHP setText:[NSString stringWithFormat:@"%d",actualHp]];
+
+    NSInteger actualA = [self calculationParameter:pokemon.A :[_ivA.text intValue] :[_evA.text intValue]];
+    [_actualA setText:[NSString stringWithFormat:@"%d", actualA]];
+    NSInteger actualB = [self calculationParameter:pokemon.B :[_ivB.text intValue] :[_evB.text intValue]];
+    [_actualB setText:[NSString stringWithFormat:@"%d", actualB]];
+    NSInteger actualC = [self calculationParameter:pokemon.C :[_ivC.text intValue] :[_evC.text intValue]];
+    [_actualC setText:[NSString stringWithFormat:@"%d", actualC]];
+    NSInteger actualD = [self calculationParameter:pokemon.D :[_ivD.text intValue] :[_evD.text intValue]];
+    [_actualD setText:[NSString stringWithFormat:@"%d", actualD]];
+    NSInteger actualS = [self calculationParameter:pokemon.S :[_ivS.text intValue] :[_evS.text intValue]];
+    [_actualS setText:[NSString stringWithFormat:@"%d", actualS]];
+}
+
+- (NSInteger)calculationParameter:(int)baseParam :(int)iv :(int)ev {
+    // [{(種族値×2＋個体値＋努力値/4)×Lv/100}＋5]×性格補正(1.1、1.0、0.9)
+    return (int) floor((floor(baseParam * 2 + iv + (ev / 4)) * 50 / 100 + 5 * 1));
 }
 
 /* Push buttons */
 - (IBAction)PokeName:(id)sender {
     NSLog(@"PushButton");
-    [self.view addSubview:namePickerView];
+    //[self.view addSubview:namePickerView];
+    [uiActionSheet showInView:self.view];
+    [uiActionSheet setBounds:CGRectMake(0, 0, 320, 464)];
 }
 
 - (IBAction)addEvAp:(id)sender {
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
-/* pickerclose */
+/* picker close */
 - (IBAction)closeButton:(id)sender {
     NSLog(@"Close");
     [namePickerView removeFromSuperview];
