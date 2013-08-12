@@ -208,7 +208,23 @@ UIToolbar *pokeToolBar;
     [uiActionSheet setBounds:CGRectMake(0, 0, 320, 464)];
 }
 
-- (IBAction)addEvAp:(id)sender {
+- (IBAction)addEvHp:(id)sender {
+    [_evHp setText:@"252"];
+}
+- (IBAction)addEvA:(id)sender {
+    [_evA setText:@"252"];
+}
+- (IBAction)addEvB:(id)sender {
+    [_evB setText:@"252"];
+}
+- (IBAction)addEvC:(id)sender {
+    [_evC setText:@"252"];
+}
+- (IBAction)addEvD:(id)sender {
+    [_evD setText:@"252"];
+}
+- (IBAction)addEvS:(id)sender {
+    [_evS setText:@"252"];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

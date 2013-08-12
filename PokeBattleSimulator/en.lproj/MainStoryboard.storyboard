@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -299,7 +299,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="addEvAp:" destination="5ch-Ns-yEL" eventType="touchUpInside" id="IfW-80-I7q"/>
+                                            <action selector="addEvHp:" destination="5ch-Ns-yEL" eventType="touchUpInside" id="Ocr-eg-hX3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvV-fC-tgA">
@@ -314,6 +314,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addEvA:" destination="5ch-Ns-yEL" eventType="touchUpInside" id="VJr-A1-0zT"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gb-n0-GxT">
                                         <constraints>
@@ -327,6 +330,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addEvB:" destination="5ch-Ns-yEL" eventType="touchUpInside" id="M9U-8e-9k2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0Y-LY-wNd">
                                         <constraints>
@@ -340,6 +346,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addEvC:" destination="5ch-Ns-yEL" eventType="touchUpInside" id="QRx-6f-xcQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jC-2V-ikL">
                                         <constraints>
@@ -353,6 +362,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addEvD:" destination="5ch-Ns-yEL" eventType="touchUpInside" id="Rn3-RM-VMO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSN-8E-PYP">
                                         <constraints>
@@ -366,6 +378,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addEvS:" destination="5ch-Ns-yEL" eventType="touchUpInside" id="qyF-Jb-aLj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -398,6 +413,7 @@
                                     <constraint firstItem="BfK-EC-Sef" firstAttribute="trailing" secondItem="1SR-ba-Rn5" secondAttribute="trailing" type="default" id="Asr-zc-g0S"/>
                                     <constraint firstItem="uVJ-vL-eTE" firstAttribute="baseline" secondItem="jyP-eK-ma4" secondAttribute="baseline" type="default" id="BWl-dw-NYZ"/>
                                     <constraint firstItem="0By-Xl-5Cd" firstAttribute="leading" secondItem="uVJ-vL-eTE" secondAttribute="leading" type="default" id="BgH-7t-Xr3"/>
+                                    <constraint firstItem="z0Y-LY-wNd" firstAttribute="top" secondItem="QPn-TP-jgZ" secondAttribute="top" constant="321" id="E4i-SA-E6R"/>
                                     <constraint firstItem="FvV-fC-tgA" firstAttribute="baseline" secondItem="g14-7y-Id8" secondAttribute="baseline" type="default" id="EkM-r8-qAh"/>
                                     <constraint firstItem="OWV-dC-0qZ" firstAttribute="leading" secondItem="QPn-TP-jgZ" secondAttribute="leading" constant="134" id="Eo0-Yz-RwX"/>
                                     <constraint firstItem="rFw-Mz-iJ4" firstAttribute="top" secondItem="QPn-TP-jgZ" secondAttribute="top" constant="372" id="FXN-KR-o4o"/>
@@ -430,6 +446,7 @@
                                     <constraint firstItem="BfK-EC-Sef" firstAttribute="trailing" secondItem="uVJ-vL-eTE" secondAttribute="trailing" type="default" id="VkO-Ok-rla"/>
                                     <constraint firstItem="0By-Xl-5Cd" firstAttribute="baseline" secondItem="rSN-8E-PYP" secondAttribute="baseline" type="default" id="W5M-UQ-KRg"/>
                                     <constraint firstItem="uPf-RH-XL0" firstAttribute="centerX" secondItem="ByL-xi-XvI" secondAttribute="centerX" type="default" id="XPF-jJ-hZh"/>
+                                    <constraint firstItem="z0Y-LY-wNd" firstAttribute="baseline" secondItem="BfK-EC-Sef" secondAttribute="baseline" type="default" id="YIo-4G-7Fc"/>
                                     <constraint firstItem="yrg-QP-1kT" firstAttribute="baseline" secondItem="BfK-EC-Sef" secondAttribute="baseline" type="default" id="Ywr-tC-nup"/>
                                     <constraint firstItem="R7c-Op-hQk" firstAttribute="leading" secondItem="szR-ct-kII" secondAttribute="leading" type="default" id="ZbP-0r-r5L"/>
                                     <constraint firstItem="crg-By-pcB" firstAttribute="leading" secondItem="R7c-Op-hQk" secondAttribute="leading" type="default" id="aJe-fp-onH"/>
@@ -461,6 +478,7 @@
                                     <constraint firstItem="ByL-xi-XvI" firstAttribute="leading" secondItem="qoz-fq-Yrp" secondAttribute="leading" type="default" id="kq9-np-f5v"/>
                                     <constraint firstItem="Gxo-bG-1OS" firstAttribute="leading" secondItem="rFw-Mz-iJ4" secondAttribute="leading" type="default" id="m1O-8F-YJv"/>
                                     <constraint firstItem="g14-7y-Id8" firstAttribute="trailing" secondItem="pG4-j4-hhl" secondAttribute="trailing" type="default" id="mgi-7Z-wWg"/>
+                                    <constraint firstItem="z0Y-LY-wNd" firstAttribute="centerY" secondItem="szR-ct-kII" secondAttribute="centerY" type="default" id="nEz-aJ-scK"/>
                                     <constraint firstItem="aZA-bb-Jwp" firstAttribute="leading" secondItem="x9F-s6-YeA" secondAttribute="leading" type="default" id="nbD-U9-9Ob"/>
                                     <constraint firstItem="R7c-Op-hQk" firstAttribute="trailing" secondItem="szR-ct-kII" secondAttribute="trailing" type="default" id="pD2-hN-yY1"/>
                                     <constraint firstItem="yrg-QP-1kT" firstAttribute="baseline" secondItem="5HU-rO-Mfl" secondAttribute="baseline" type="default" id="pDw-LE-OIZ"/>
@@ -469,7 +487,6 @@
                                     <constraint firstItem="sme-t6-7l5" firstAttribute="centerX" secondItem="Wn8-UG-IJW" secondAttribute="centerX" type="default" id="qfi-AO-Rvu"/>
                                     <constraint firstItem="FvV-fC-tgA" firstAttribute="leading" secondItem="7Gb-n0-GxT" secondAttribute="leading" type="default" id="qub-w1-EOG"/>
                                     <constraint firstItem="2ko-9Q-pNo" firstAttribute="trailing" secondItem="aAk-28-euZ" secondAttribute="trailing" type="default" id="rAT-Xa-rVX"/>
-                                    <constraint firstItem="z0Y-LY-wNd" firstAttribute="top" secondItem="QPn-TP-jgZ" secondAttribute="top" constant="321" id="rH9-xv-u6v"/>
                                     <constraint firstItem="7Gb-n0-GxT" firstAttribute="trailing" secondItem="z0Y-LY-wNd" secondAttribute="trailing" type="default" id="sPr-oh-NMK"/>
                                     <constraint firstItem="qoz-fq-Yrp" firstAttribute="baseline" secondItem="aZA-bb-Jwp" secondAttribute="baseline" type="default" id="stH-kt-uxe"/>
                                     <constraint firstItem="1SR-ba-Rn5" firstAttribute="leading" secondItem="BfK-EC-Sef" secondAttribute="leading" type="default" id="tcp-vE-Mmd"/>
@@ -478,7 +495,6 @@
                                     <constraint firstItem="2ko-9Q-pNo" firstAttribute="baseline" secondItem="pG4-j4-hhl" secondAttribute="baseline" type="default" id="wwU-8c-OWz"/>
                                     <constraint firstItem="uVJ-vL-eTE" firstAttribute="trailing" secondItem="0By-Xl-5Cd" secondAttribute="trailing" type="default" id="xE4-Dq-lJu"/>
                                     <constraint firstItem="c5u-DL-mE2" firstAttribute="baseline" secondItem="uPf-RH-XL0" secondAttribute="baseline" type="default" id="xZw-LO-Pys"/>
-                                    <constraint firstItem="szR-ct-kII" firstAttribute="centerY" secondItem="z0Y-LY-wNd" secondAttribute="centerY" type="default" id="xaL-m4-JTI"/>
                                     <constraint firstItem="W0T-iO-Z24" firstAttribute="baseline" secondItem="x3M-1f-en3" secondAttribute="baseline" type="default" id="ysl-Gl-tjS"/>
                                 </constraints>
                             </scrollView>
@@ -547,7 +563,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PokeCreateViewController.h"/>
             <relationships>
                 <relationship kind="action" name="PokeName:"/>
-                <relationship kind="action" name="addEvAp:"/>
+                <relationship kind="action" name="addEvA:"/>
+                <relationship kind="action" name="addEvB:"/>
+                <relationship kind="action" name="addEvC:"/>
+                <relationship kind="action" name="addEvD:"/>
+                <relationship kind="action" name="addEvHp:"/>
+                <relationship kind="action" name="addEvS:"/>
                 <relationship kind="action" name="closeButton:"/>
                 <relationship kind="outlet" name="actualA" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="actualB" candidateClass="UITextField"/>
