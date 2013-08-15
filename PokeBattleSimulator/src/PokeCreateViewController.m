@@ -46,6 +46,7 @@ UIPickerView *namePickerView;
 NSMutableArray *pokeArray;
 NSMutableDictionary *pokeDictionary;
 UIToolbar *pokeToolBar;
+UITextField *uiTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -83,6 +84,7 @@ UIToolbar *pokeToolBar;
     _evD.delegate = self;
     _evS.delegate = self;
 
+
     //NSInteger tabBarHeight = [[[self tabBarController]rotatingFooterView] frame].size.height;
 
     uiActionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
@@ -94,7 +96,9 @@ UIToolbar *pokeToolBar;
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButton)];
     [pokeToolBar setItems:[NSArray arrayWithObjects:spacer, done, nil]];
-    
+
+
+    //[uiTextField addSubview:pokeToolBar];
     [uiActionSheet addSubview:pokeToolBar];
 
     namePickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, 0, 0)];
@@ -149,11 +153,38 @@ UIToolbar *pokeToolBar;
         [pokeDictionary setObject:pokemon forKey:[NSString stringWithFormat:@"%d", pokemon.No]];
     }
 
+    // keyboard's height
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    //[notificationCenter addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification*)notification {
+    CGRect keyboardFrameEnd = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    float screenHeight = screenBounds.size.height;
+
+    if ((uiTextField.frame.origin.y + uiTextField.frame.size.height) > (screenHeight - keyboardFrameEnd.size.height - 20)) {
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             _uiScrollView.frame = CGRectMake(0, screenHeight - uiTextField.frame.origin.y - keyboardFrameEnd.size.height + 20, _uiScrollView.frame.size.width, _uiScrollView.frame.size.height);
+                         }];
+    }
+}
+
+- (void)keyboardWillHide: (NSNotification *)notification {
+
 }
 
 /* PickerView */
 - (void)doneButton {
     [uiActionSheet dismissWithClickedButtonIndex:0 animated:YES];
+
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         _uiScrollView.frame = CGRectMake(0, 0, _uiScrollView.frame.size.width, _uiScrollView.frame.size.height);
+                     }];
+    [uiTextField resignFirstResponder];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -227,8 +258,11 @@ UIToolbar *pokeToolBar;
     [_evS setText:@"252"];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    NSLog(@"textFieldShouldBeginEditing");
+    textField.keyboardType = UIKeyboardTypeNumberPad;
+    textField.inputAccessoryView = pokeToolBar;
+    uiTextField = textField;
     return YES;
 }
 
