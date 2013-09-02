@@ -9,6 +9,7 @@
 #import "PokeCreateViewController.h"
 #import "UIView+MyExtension.h"
 #import "Pokemon.h"
+#import "ReadPokemonJson.h"
 
 @interface PokeCreateViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
@@ -110,6 +111,7 @@ UITextField *uiTextField;
     namePickerView.delegate = self;
     namePickerView.dataSource = self;
     [uiActionSheet addSubview:namePickerView];
+
     
     pokeArray = [[NSMutableArray alloc] init];
 //    NSString *jsonPokeNames = @"["
@@ -119,39 +121,13 @@ UITextField *uiTextField;
 //
 //    NSData *pokeNamesData = [jsonPokeNames dataUsingEncoding:NSUnicodeStringEncoding];
     //    NSArray *array = [NSJSONSerialization JSONObjectWithData:pokeNamesData options:NSJSONReadingAllowFragments error:&error];
-    // file load
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *filePath = [bundle pathForResource:@"pokemon" ofType:@"json"];
-    NSLog(@"path %@", filePath);
-    NSData *pokemonJsonData = [NSData dataWithContentsOfFile:filePath];
 
-    NSError *error;
-    NSArray *array = [NSJSONSerialization JSONObjectWithData:pokemonJsonData options:NSJSONReadingAllowFragments error:&error];
 
-    pokeDictionary = [[NSMutableDictionary alloc] init];
-
-    for (NSDictionary *obj in array) {
-        Pokemon *pokemon = [[Pokemon alloc] init];
-        pokemon.Name = [obj valueForKey:@"名前"];
-        
-        NSString *typeString = [obj valueForKey:@"タイプ"];
-        NSArray *typeArray = [typeString componentsSeparatedByString:@"/"];
-        pokemon.type1 = [typeArray objectAtIndex:0];
-        if ([typeArray count] > 1) {
-            pokemon.type2 = [typeArray objectAtIndex:1];
-        }
-
-        pokemon.No = [(NSString *)[obj valueForKey:@"No"] intValue];
-        pokemon.H = [(NSString *)[obj valueForKey:@"HP"] intValue];
-        pokemon.A = [(NSString *)[obj valueForKey:@"こうげき"] intValue];
-        pokemon.B = [(NSString *)[obj valueForKey:@"ぼうぎょ"] intValue];
-        pokemon.C = [(NSString *)[obj valueForKey:@"とくこう"] intValue];
-        pokemon.D = [(NSString *)[obj valueForKey:@"とくぼう"] intValue];
-        pokemon.S = [(NSString *)[obj valueForKey:@"すばやさ"] intValue];
-
-        [pokeArray addObject:pokemon];
-        [pokeDictionary setObject:pokemon forKey:[NSString stringWithFormat:@"%d", pokemon.No]];
-    }
+    //pokeDictionary = [[NSMutableDictionary alloc] init];
+    //[pokeDictionary setObject:pokemon forKey:[NSString stringWithFormat:@"%d", pokemon.No]];
+    ReadPokemonJson *readPokemonData = [[ReadPokemonJson alloc] init];
+    pokeArray = [readPokemonData getPokemonArray];
+    pokeDictionary = [readPokemonData getPokemonDictionary];
 
     // keyboard's height
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
@@ -201,6 +177,7 @@ UITextField *uiTextField;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSLog(@"pickerView didSelectRow");
     Pokemon *pokemon = [pokeArray objectAtIndex:row];
     [_nameButton setTitle:pokemon.Name forState:UIControlStateNormal];
 

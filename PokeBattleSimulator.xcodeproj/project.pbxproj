@@ -11,6 +11,8 @@
 		A05B8E3A17930D45004CD952 /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = A05B8E3817930D45004CD952 /* pokemon.json */; };
 		A05B8E3B17930D45004CD952 /* waza.json in Resources */ = {isa = PBXBuildFile; fileRef = A05B8E3917930D45004CD952 /* waza.json */; };
 		A07CD08D1792EA38000D7DEF /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = A07CD08C1792EA38000D7DEF /* Pokemon.m */; };
+		A0BD6D6917D4C84D0050F571 /* ReadPokemonJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BD6D6817D4C84D0050F571 /* ReadPokemonJson.m */; };
+		A0BD6D6C17D4CEE60050F571 /* SavePokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BD6D6B17D4CEE60050F571 /* SavePokemon.m */; };
 		FDAF7474178F71940072ECE6 /* PokeCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAF7473178F71940072ECE6 /* PokeCreateViewController.m */; };
 		FDD6CB8417848DC500F66333 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD6CB8317848DC500F66333 /* UIKit.framework */; };
 		FDD6CB8617848DC500F66333 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD6CB8517848DC500F66333 /* Foundation.framework */; };
@@ -32,6 +34,10 @@
 		A05B8E3917930D45004CD952 /* waza.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waza.json; sourceTree = "<group>"; };
 		A07CD08B1792EA38000D7DEF /* Pokemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pokemon.h; path = src/model/Pokemon.h; sourceTree = "<group>"; };
 		A07CD08C1792EA38000D7DEF /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pokemon.m; path = src/model/Pokemon.m; sourceTree = "<group>"; };
+		A0BD6D6717D4C84D0050F571 /* ReadPokemonJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadPokemonJson.h; path = src/service/ReadPokemonJson.h; sourceTree = "<group>"; };
+		A0BD6D6817D4C84D0050F571 /* ReadPokemonJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReadPokemonJson.m; path = src/service/ReadPokemonJson.m; sourceTree = "<group>"; };
+		A0BD6D6A17D4CEE60050F571 /* SavePokemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavePokemon.h; path = src/service/SavePokemon.h; sourceTree = "<group>"; };
+		A0BD6D6B17D4CEE60050F571 /* SavePokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavePokemon.m; path = src/service/SavePokemon.m; sourceTree = "<group>"; };
 		FDAF7472178F71940072ECE6 /* PokeCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeCreateViewController.h; path = src/PokeCreateViewController.h; sourceTree = "<group>"; };
 		FDAF7473178F71940072ECE6 /* PokeCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PokeCreateViewController.m; path = src/PokeCreateViewController.m; sourceTree = "<group>"; };
 		FDD6CB8017848DC500F66333 /* PokeBattleSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeBattleSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +90,17 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		A0BD6D6617D4C80D0050F571 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				A0BD6D6717D4C84D0050F571 /* ReadPokemonJson.h */,
+				A0BD6D6817D4C84D0050F571 /* ReadPokemonJson.m */,
+				A0BD6D6A17D4CEE60050F571 /* SavePokemon.h */,
+				A0BD6D6B17D4CEE60050F571 /* SavePokemon.m */,
+			);
+			name = service;
+			sourceTree = "<group>";
+		};
 		FD472D6C1792A9D300E9B66A /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +113,7 @@
 		FDAF7471178F71360072ECE6 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A0BD6D6617D4C80D0050F571 /* service */,
 				A07CD08A1792EA0C000D7DEF /* model */,
 				FD472D6C1792A9D300E9B66A /* common */,
 				FDAF7472178F71940072ECE6 /* PokeCreateViewController.h */,
@@ -234,6 +252,8 @@
 				FDAF7474178F71940072ECE6 /* PokeCreateViewController.m in Sources */,
 				A038B7511792DB1C0072FCEA /* UIView+MyExtension.m in Sources */,
 				A07CD08D1792EA38000D7DEF /* Pokemon.m in Sources */,
+				A0BD6D6917D4C84D0050F571 /* ReadPokemonJson.m in Sources */,
+				A0BD6D6C17D4CEE60050F571 /* SavePokemon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
